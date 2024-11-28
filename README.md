@@ -3,8 +3,8 @@
 **Данный скрипт создан для авто продаж в телеграмме. С огромным функционалом**
 ___
 # **Навигация**
-1. [Начало](#telegram-autoshop-korgi)
-2. [Установка](#title2)
+* [Начало](#telegram-autoshop-korgi)
+* [Установка](#установка)
 ---
 # **Установка**
 1. Скачать скриптПерейти в [realese](https://github.com/k1p1k-code/TgAutoShopKORGI/releases) установить AutoShopKorgi.zip 
