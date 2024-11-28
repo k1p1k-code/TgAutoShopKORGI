@@ -1,9 +1,9 @@
-# **Telegram Autoshop Korgi**
+# Telegram Autoshop Korgi
 ![](https://i.imgur.com/Lzch3s4.jpeg)
 **Данный скрипт создан для авто продаж в телеграмме. С огромным функционалом**
 ___
 # **Навигация**
-1. [Начало](#title1)
+1. [Начало](#telegram-autoshop-korgi)
 2. [Установка](#title2)
 ---
 # **Установка**
