@@ -31,6 +31,7 @@ python3 app.py
 ___
 # :wrench: **Настройка бота**
 ## :credit_card: Настройка платёжной системы 
-**В боте присутствуют две платёжной системы, со временем будет больше
-Yoomoney - [создать токен ](https://yoomoney.ru/myservices/new)**
+**В боте присутствуют две платёжной системы, со временем будет больше**
+
+**Yoomoney - [создать токен ](https://yoomoney.ru/myservices/new)**   
 **Lolz - [Создать токен ](https://lolz.live/account/api)**
