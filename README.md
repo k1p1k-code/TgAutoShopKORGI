@@ -37,7 +37,7 @@ ___
 /admin > Способы оплаты 
 
 2\. Выбрать платёжную систему 
-**Yoomoney - [создать токен ](https://yoomoney.ru/myservices/new)**   
+  **Yoomoney - [создать токен ](https://yoomoney.ru/myservices/new)**   
 **Lolz - [создать токен ](https://lolz.live/account/api)**
 
 3\. Вести токен 
