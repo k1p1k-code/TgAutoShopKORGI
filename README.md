@@ -38,7 +38,7 @@ ___
 
 2\. Выбрать платёжную систему 
 **Yoomoney - [создать токен ](https://yoomoney.ru/myservices/new)**   
-**Lolz - [Создать токен ](https://lolz.live/account/api)**
+**Lolz - [создать токен ](https://lolz.live/account/api)**
 
 3\. Вести токен 
 Платежная > токен 
