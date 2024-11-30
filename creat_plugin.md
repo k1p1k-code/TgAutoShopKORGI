@@ -1,4 +1,3 @@
-
 # **Начало**
 **1\. Скачать самого бота из [realease]([realese](https://github.com/k1p1k-code/TgAutoShopKORGI/releases))**
 
@@ -77,6 +76,32 @@ async def get_contact_admin(message: types.Message):
 Main=BuildPlugin(name='Give admin', creator='@k1p1k')
 
 ```
+
+# **При создание middleware использовать перед возращением хендлера clear_state**
+
+**Пример:**
+
+``` python
+import utils
+
+class MiddlewareTest(BaseMiddleware):
+    async def __call__(
+        self,
+        handlers: Callable[[TelegramObject, Dict[str, Any]], Awaitable[Any]],
+        event: TelegramObject,
+        data: Dict[str, Any]) -> Any:
+        await utils.clear_state(user_id=event.from_user.id, chat_id=event.chat.id)
+        return await handlers(event, data)
+```
+**Нужно что бы не было багов с state**
+
+**Важно не делать вот такой импорт**
+
+``` python
+from utils import clear_state
+#Eroor: ImportError: cannot import name 'clear_state' from partially initialized module 'utils'
+```
+
 
 # **Давайте напишем пользный плагин**
 
@@ -390,3 +415,5 @@ async def get_file_backup(message: types.Message, state: FSMContext):
 
 
 ```
+
+
