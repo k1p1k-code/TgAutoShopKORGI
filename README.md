@@ -18,8 +18,6 @@ ___
 
 # :page_with_curl: Цели
 - [x] Выпустить бота
-- [ ] Подробнная статистика
-- [ ] Изменение надписей кнопок
 - [ ] Сделать систему оплаты звездами 
 - [ ] Сделать реферальную систему
 - [ ] Сделать систему промокодов
@@ -28,7 +26,7 @@ ___
 
 ---
 # :arrow_down: **Установка**
-1. Скачать скрипт перейти в [realese](https://github.com/k1p1k-code/TgAutoShopKORGI/releases) установить AutoShopKorgi.zip 
+1. Скачать скриптПерейти в [realese](https://github.com/k1p1k-code/TgAutoShopKORGI/releases) установить AutoShopKorgi.zip 
 2. Распокавать в каталоге без латинице 
 3. Открыть терминал в детекторе AutoShopByK1p1k
 4. Установить зависимости 
@@ -36,42 +34,14 @@ ___
 pip install -r reqments.txt
 ```
 5. Открыть config.py 
-заполнить
+Заполнить
 ``` python 
-token_bot=''
-admin_id=int()
-timezone='Europe/Moscow'
+token='токен от бота'
+admin_id='телеграмм айди админа'
 ```
 6. Запустить скрипт 
 ``` shell 
-python main.py
-```
-
-## Продвинутый способ запуска
-
-``` python 
-#Не заполнять config.py
-token_bot=''
-admin_id=int()
-timezone='Europe/Moscow'
-```
-
-Сразу передать через аргументы token_bot, admin_id(пожеланию), timezone(пожеланию)
-
-Если аргумента нет то он береться из config.py
-
-```
-python main.py --token_bot 54354353:fdsfsd... 
-```
-
-
-Примеры:
-```
-python main.py --token_bot 54354353:fdsfsd... --admin_id 432423 --timezone Europe/Moscow 
-python main.py --token_bot 54354353:fdsfsd... 
-python main.py --token_bot 54354353:fdsfsd...  --admin_id 432423
-python main.py --token_bot 54354353:fdsfsd... --timezone Europe/Moscow
-python main.py --admin_id 432423 --timezone Europe/Moscow
+python3 app.py
 ```
 ___
 # :wrench: **Настройка бота**

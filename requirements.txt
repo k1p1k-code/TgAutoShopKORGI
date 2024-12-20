@@ -1,0 +1,10 @@
+aiogram
+requests
+AsyncPayments
+aiosqlite
+validators
+apscheduler
+progress
+yoomoney
+cachetools
+progress
