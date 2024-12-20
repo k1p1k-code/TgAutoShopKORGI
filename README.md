@@ -56,7 +56,7 @@ admin_id=int()
 timezone='Europe/Moscow'
 ```
 
-А сразу передать через аргументы token_bot, admin_id(пожеланию), timezone(пожеланию)
+Сразу передать через аргументы token_bot, admin_id(пожеланию), timezone(пожеланию)
 
 Если аргумента нет то он береться из config.py
 
