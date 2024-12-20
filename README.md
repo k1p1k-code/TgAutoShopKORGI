@@ -41,7 +41,7 @@ admin_id='телеграмм айди админа'
 ```
 6. Запустить скрипт 
 ``` shell 
-python3 app.py
+python main.py
 ```
 ___
 # :wrench: **Настройка бота**
