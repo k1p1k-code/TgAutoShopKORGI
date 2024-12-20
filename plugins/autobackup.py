@@ -58,7 +58,7 @@ async def send_backup(callback):
     
 
 #отправка бекапа каждыыйе 24 часа во время к нынешниму  +1 минута  времени
-#scheduler.add_job(send_backup, trigger='cron', hour=datetime.now().hour, minute=datetime.now().minute+1, start_date=datetime.now(), kwargs={'callback' : types.CallbackQuery})
+scheduler.add_job(send_backup, trigger='cron', hour=datetime.now().hour, minute=datetime.now().minute+1, start_date=datetime.now(), kwargs={'callback' : types.CallbackQuery})
 
 #функция старт для on_startup
 async def start():
