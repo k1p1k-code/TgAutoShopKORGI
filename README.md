@@ -28,7 +28,7 @@ ___
 
 ---
 # :arrow_down: **Установка**
-1. Скачать скриптПерейти в [realese](https://github.com/k1p1k-code/TgAutoShopKORGI/releases) установить AutoShopKorgi.zip 
+1. Скачать скрипт перейти в [realese](https://github.com/k1p1k-code/TgAutoShopKORGI/releases) установить AutoShopKorgi.zip 
 2. Распокавать в каталоге без латинице 
 3. Открыть терминал в детекторе AutoShopByK1p1k
 4. Установить зависимости 
