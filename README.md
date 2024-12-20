@@ -36,14 +36,42 @@ ___
 pip install -r reqments.txt
 ```
 5. Открыть config.py 
-Заполнить
+заполнить
 ``` python 
-token='токен от бота'
-admin_id='телеграмм айди админа'
+token_bot=''
+admin_id=int()
+timezone='Europe/Moscow'
 ```
 6. Запустить скрипт 
 ``` shell 
-python3 app.py
+python main.py
+```
+
+## Продвинутый способ запуска
+
+``` python 
+#Не заполнять config.py
+token_bot=''
+admin_id=int()
+timezone='Europe/Moscow'
+```
+
+А сразу передать через аргументы token_bot, admin_id(пожеланию), timezone(пожеланию)
+
+Если аргумента нет то он береться из config.py
+
+```
+python main.py --token_bot 54354353:fdsfsd... 
+```
+
+
+Примеры:
+```
+python main.py --token_bot 54354353:fdsfsd... --admin_id 432423 --timezone Europe/Moscow 
+python main.py --token_bot 54354353:fdsfsd... 
+python main.py --token_bot 54354353:fdsfsd...  --admin_id 432423
+python main.py --token_bot 54354353:fdsfsd... --timezone Europe/Moscow
+python main.py --admin_id 432423 --timezone Europe/Moscow
 ```
 ___
 # :wrench: **Настройка бота**
