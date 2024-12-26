@@ -8,3 +8,5 @@ from .admin_search import dp
 from .admin_setting import dp
 from .admin_plugins import dp
 from .admin_mailing import dp
+from .admin_chennal import dp
+from .error import dp

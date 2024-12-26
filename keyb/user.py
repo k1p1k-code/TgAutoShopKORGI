@@ -5,12 +5,15 @@ back_mine=InlineKeyboardButton(text="🔙 Назад в меню", callback_data
 
 back_profile=[[InlineKeyboardButton(text="🔙", callback_data='back_profile')]]
 
-async def user_main_menu():
+class user_main_keyboard():
     inline_kb_list = [
         [InlineKeyboardButton(text="🏪 Товары", callback_data='open_main_product_0'), InlineKeyboardButton(text="👤 Профиль", callback_data='open_profile')],
         [InlineKeyboardButton(text="🆘 Поддержка", callback_data='open_help')]
     ]
-    return InlineKeyboardMarkup(inline_keyboard=inline_kb_list)
+    
+
+async def user_main_menu():
+    return InlineKeyboardMarkup(inline_keyboard=user_main_keyboard.inline_kb_list)
 
 async def get_catalog(req):
     inline_kb_list=list()
@@ -78,4 +81,17 @@ async def get_back_product(prd_id):
         [InlineKeyboardButton(text='◀️', callback_data=f'open_back_catalog_{back_ctg}'), back_mine]
 
     ]
+    return InlineKeyboardMarkup(inline_keyboard=inline_kb_list)
+
+
+async def get_chennal_sub(chennal):
+    inline_kb_list=list()
+    c=1
+    for i in chennal:
+        if c % 2==0:
+            inline_kb_list[-1].append(InlineKeyboardButton(text=f"{c}# Подпишись", url=i))
+            continue
+        inline_kb_list.append([InlineKeyboardButton(text=f"{c}# Подпишись", url=i)])
+        c+=1
+
     return InlineKeyboardMarkup(inline_keyboard=inline_kb_list)

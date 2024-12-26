@@ -2,6 +2,7 @@ from loader import dp, bot, cfg
 from aiogram import types, F
 from keyb import user 
 from data import db
+from data.json_utils import get_texts
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
 from utils import check_spam
@@ -17,7 +18,11 @@ async def nofication_pay(ID, product, balance, lens, price, id_history):
 
 @dp.callback_query(F.data == 'open_main_product_0')
 async def open_product(call: types.CallbackQuery):
-    await call.message.edit_text('Выбирай что надо', reply_markup=await user.get_catalog(req='0'))
+    await call.message.delete()
+    await call.message.answer((await get_texts())['catalog_root'].format(username=call.from_user.username,
+                                                                  full_name=call.from_user.full_name,
+                                                                  fist_name=call.from_user.first_name,
+                                                                  id=call.from_user.id), reply_markup=await user.get_catalog(req='0'), parse_mode="HTML")
 
 @dp.callback_query(F.data[:18] == 'open_catalog_user_')
 async def open_catalog_user(call: types.CallbackQuery):

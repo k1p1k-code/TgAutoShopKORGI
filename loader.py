@@ -26,7 +26,7 @@ if 'custom_cfg.json' in os.listdir('data//temp_bot'):
     if data.get('timezone') != None:
         cfg.timezone=data.get('timezone')
 os.remove("data//temp_bot//custom_cfg.json")
-
+print(1)
 bot=Bot(cfg.token_bot)
 dp=Dispatcher(bot=bot, storage=MemoryStorage())
 

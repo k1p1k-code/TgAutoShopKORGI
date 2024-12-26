@@ -1,10 +1,9 @@
-from routers import admin_router
+from core.routers import admin_router
 from loader import dp, cfg
 from aiogram import types, F
 from keyb import admin 
 from aiogram.fsm.context import FSMContext
-from loader_plugins import plugins, plugin_reload
-
+from core.loader_plugins import plugins
 
 @admin_router.callback_query(F.data == 'plugins_open')
 async def open_search(call: types.CallbackQuery):

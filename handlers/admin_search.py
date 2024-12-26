@@ -1,4 +1,4 @@
-from routers import admin_router
+from core.routers import admin_router
 from loader import dp, bot, cfg
 from aiogram import types, F
 from keyb import admin 

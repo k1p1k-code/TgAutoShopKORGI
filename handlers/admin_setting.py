@@ -1,4 +1,4 @@
-from routers import admin_router
+from core.routers import admin_router
 from loader import dp, bot, cfg
 from aiogram import types, F
 from keyb import admin 
@@ -11,13 +11,13 @@ class edit_tests(StatesGroup):
     hello=State()
     profile=State()
     helpp=State()
+    catalog_root=State()
 
 @admin_router.callback_query(F.data == 'settings_open')
 async def switch_menu(call: types.CallbackQuery, state: FSMContext):
     await state.clear()
     PATH='data/settings.json'
     data=json.load((open(PATH, 'r', encoding='UTF-8')))
-
     iswork='Работает' if data['work'] == True else 'Не работает'
     await call.message.edit_text(f'<b>🤖 Статус: {iswork}</b>', reply_markup=await admin.get_settings_menu(), parse_mode="HTML")
 
@@ -81,6 +81,21 @@ async def edit_text_hello_admin(call: types.CallbackQuery, state: FSMContext):
 async def edit_hello(message: types.Message, state: FSMContext):
     await message.delete()
     await json_utils.edit_text(text='help', value=message.text)
+    data=await state.update_data()
+    await bot.edit_message_text(chat_id=message.from_user.id, message_id=data['msg_id'], text='<b>✅Готово\n✍️ Здесь ты можешь изменить текст для пользователей</b>', reply_markup=await admin.get_texts_menu(), parse_mode="HTML")
+    await state.clear()
+
+@admin_router.callback_query(F.data == 'edit_text_catalog_root_admin')
+async def edit_text_hello_admin(call: types.CallbackQuery, state: FSMContext):
+    back_main=types.InlineKeyboardMarkup(inline_keyboard=[[types.InlineKeyboardButton(text='🔙', callback_data='bot_text_menu_admin')]])
+    await state.set_state(edit_tests.catalog_root)
+    msg=await call.message.edit_text(text='<b>✍️ Введите новый текст для корневого каталога\n🔗 Подержка: HTML\n<code>{username}</code> - юзернайм\n<code>{full_name}</code> - полное имя\n<code>{fist_name}</code> - имя\n<code>{id}</code> - id\n<code>{creator}</code> - ссылка на админа если есть юз</b>', reply_markup=back_main, parse_mode="HTML")
+    await state.update_data(msg_id=msg.message_id)
+
+@admin_router.message(edit_tests.catalog_root)
+async def edit_hello(message: types.Message, state: FSMContext):
+    await message.delete()
+    await json_utils.edit_text(text='catalog_root', value=message.text)
     data=await state.update_data()
     await bot.edit_message_text(chat_id=message.from_user.id, message_id=data['msg_id'], text='<b>✅Готово\n✍️ Здесь ты можешь изменить текст для пользователей</b>', reply_markup=await admin.get_texts_menu(), parse_mode="HTML")
     await state.clear()

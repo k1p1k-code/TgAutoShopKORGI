@@ -1,10 +1,7 @@
 from sys import argv, exit
-from start import start
 import json
-argv=argv[1:]
 
-def start_bot():
-    start()
+argv=argv[1:]
 
 data=dict()
 
@@ -35,6 +32,8 @@ for i in argv:
             exit()
 
     c+=1
-
-json.dump(data, open('data/temp_bot/custom_cfg.json', 'w', encoding='UTF-8'), indent=4)
+js=open('data//temp_bot//custom_cfg.json', 'w', encoding='UTF-8')
+json.dump(data, js, indent=4)
+js.close()
+from core.start import start
 start()

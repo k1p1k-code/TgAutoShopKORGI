@@ -64,6 +64,11 @@ async def connect_db():
         pay_token TEXT
     )""")
 
+    await cs.execute("""CREATE TABLE IF NOT EXISTS chennal_data(
+        chat_id INTEGER PRIMARY KEY,
+        chat_link TEXT
+    )""")
+
     try:
         await cs.execute("INSERT INTO pay_settings VALUES(?, ?, ?)", ['yoomoney', 0, 0])
         await cs.execute("INSERT INTO pay_settings VALUES(?, ?, ?)", ['lolz', 0, 0])
@@ -191,3 +196,16 @@ async def add_history(typee, product, logs, summ, user_id):
     await cs.execute("INSERT INTO history VALUES(?, ?, ?, ?, ?, ?, ?)", data)
     await sql.commit()
     return id_history
+
+async def add_chennal(chat_id, link):
+    data=[chat_id, link]
+    await cs.execute("INSERT INTO chennal_data VALUES(?, ?)", data)
+    await sql.commit()
+
+async def get_dataChennal():
+    await cs.execute(f"SELECT * FROM chennal_data")
+    return await cs.fetchall()
+
+async def delete_chennal(chat_id):
+    await cs.execute(f"DELETE FROM chennal_data WHERE chat_id = '{chat_id}'")
+    await sql.commit()

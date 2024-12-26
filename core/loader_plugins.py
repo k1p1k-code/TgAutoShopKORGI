@@ -1,5 +1,4 @@
 from utils import plugins as loader
-import sys
 
 plugins=loader.load()
 on_startup=list()

@@ -1,4 +1,5 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from loader import bot
 from data import db
 import json
 
@@ -9,8 +10,9 @@ async def admin_main_menu():
     inline_kb_list = [
         [InlineKeyboardButton(text="🏪 Товары", callback_data='open_catalog_admin_0')],
         [InlineKeyboardButton(text="💳 Способы оплаты", callback_data='pay_menu_open')],
+        [InlineKeyboardButton(text="📢 Каналы", callback_data='chennal_open')],
         [InlineKeyboardButton(text="🔍 Поиск", callback_data='search_menu_open')],
-        [InlineKeyboardButton(text="📢 Рассылка", callback_data='mailing_start')],
+        [InlineKeyboardButton(text="🔉 Рассылка", callback_data='mailing_start')],
         [InlineKeyboardButton(text="⚙️ Настройки", callback_data='settings_open')],
         [InlineKeyboardButton(text="🧩 Плагины", callback_data='plugins_open')]
     ]
@@ -148,6 +150,7 @@ async def get_texts_menu():
         [InlineKeyboardButton(text="👋 Приветствие", callback_data='edit_text_hello_admin')],
         [InlineKeyboardButton(text="👤 Профиль", callback_data='edit_text_profile_admin')],
         [InlineKeyboardButton(text="🆘 Подержка", callback_data='edit_text_help_admin')],
+        [InlineKeyboardButton(text="🏪 Корневой каталог", callback_data='edit_text_catalog_root_admin')],
          [InlineKeyboardButton(text='🔙', callback_data='settings_open')]
          ]
     return InlineKeyboardMarkup(inline_keyboard=inline_kb_list)
@@ -175,3 +178,19 @@ async def get_plugin_settings(plugin):
         inline_kb_list.append(i)
     inline_kb_list.append([back_mine])
     return InlineKeyboardMarkup(inline_keyboard=inline_kb_list)
+
+async def get_chennal_menu():
+    inline_kb_list = [
+        [InlineKeyboardButton(text="➕ Добавить канал", callback_data='add_chennal_admin')]]
+    c=1
+    for i in await db.get_dataChennal():
+        chennal=await bot.get_chat(chat_id=i[0])
+        if c % 2==0:
+            inline_kb_list[-1].append(InlineKeyboardButton(text=f"{chennal.full_name}", callback_data=f'delete_chennal_admin_{i[0]}'))
+            continue
+        inline_kb_list.append([InlineKeyboardButton(text=f"{chennal.full_name}", callback_data=f'delete_chennal_admin_{i[0]}')])
+        c+=1
+    inline_kb_list.append([back_mine])
+    return InlineKeyboardMarkup(inline_keyboard=inline_kb_list)
+
+
